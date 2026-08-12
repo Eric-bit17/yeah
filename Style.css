@@ -1,0 +1,1860 @@
+/* =========================================
+   SASHA MD DATE WEBSITE
+   STYLE SHEET
+   ========================================= */
+
+
+/* =========================================
+   BASIC RESET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #29204d 0%,
+            #15132d 35%,
+            #080914 75%,
+            #03040a 100%
+        );
+}
+
+
+/* =========================================
+   BACKGROUND
+   ========================================= */
+
+#background {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   STARS
+   ========================================= */
+
+.stars {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px);
+
+    background-size:
+        90px 90px,
+        150px 150px;
+
+    background-position:
+        10px 20px,
+        50px 70px;
+
+    animation: starsMove 25s linear infinite;
+
+    opacity: 0.45;
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(90px);
+    }
+
+}
+
+
+/* =========================================
+   FLOATING HEARTS CONTAINER
+   ========================================= */
+
+.hearts {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   SCREEN SYSTEM
+   ========================================= */
+
+.screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+    z-index: 10;
+}
+
+
+.screen.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================
+   GLASS CARDS
+   ========================================= */
+
+.glass-card {
+
+    width: min(650px, 92vw);
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid rgba(255,255,255,0.14);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.45),
+        inset 0 1px 1px rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    transform: translateY(20px) scale(0.96);
+
+    transition:
+        transform 1s ease;
+}
+
+
+.screen.active .glass-card {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =========================================
+   LOADING SCREEN
+   ========================================= */
+
+.loading-content {
+
+    text-align: center;
+
+}
+
+
+.loading-heart {
+
+    font-size: 70px;
+
+    margin-bottom: 25px;
+
+    animation:
+        heartbeat 1.4s infinite;
+
+    text-shadow:
+        0 0 25px rgba(255,120,180,0.8);
+
+}
+
+
+.loading-content h1 {
+
+    font-size: clamp(22px, 5vw, 34px);
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+}
+
+
+.loading-content p {
+
+    margin-top: 15px;
+
+    opacity: 0.5;
+
+    font-size: 14px;
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.18);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* =========================================
+   LOADING BAR
+   ========================================= */
+
+.loading-bar {
+
+    width: min(300px, 70vw);
+
+    height: 4px;
+
+    margin: 30px auto 0;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.1);
+
+    overflow: hidden;
+
+}
+
+
+.loading-progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff8fbd,
+            #c8a7ff
+        );
+
+    animation:
+        loadingProgress 3s ease forwards;
+
+}
+
+
+@keyframes loadingProgress {
+
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.small-heart {
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+
+    opacity: 0.8;
+
+}
+
+
+.glass-card h1 {
+
+    font-size:
+        clamp(38px, 8vw, 65px);
+
+    font-weight: 600;
+
+    letter-spacing: -2px;
+
+    line-height: 1.1;
+
+}
+
+
+.glass-card p {
+
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    opacity: 0.75;
+
+}
+
+
+/* =========================================
+   MAIN BUTTON
+   ========================================= */
+
+.main-button {
+
+    margin-top: 35px;
+
+    padding:
+        15px 32px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff79b8,
+            #a889ff
+        );
+
+    box-shadow:
+        0 10px 35px rgba(190,120,255,0.3);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.main-button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 45px rgba(190,120,255,0.45);
+
+}
+
+
+.main-button:active {
+
+    transform:
+        scale(0.97);
+
+}
+
+
+/* =========================================
+   STORY
+   ========================================= */
+
+.story-card {
+
+    max-width: 700px;
+
+}
+
+
+.story-heart {
+
+    font-size: 45px;
+
+    margin-bottom: 25px;
+
+    animation:
+        heartbeat 2s infinite;
+
+}
+
+
+.story-card h2 {
+
+    font-size:
+        clamp(30px, 7vw, 50px);
+
+    font-weight: 500;
+
+}
+
+
+.story-card p {
+
+    font-size: 19px;
+
+    max-width: 550px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+/* =========================================
+   QUESTION SCREEN
+   ========================================= */
+
+.question-card {
+
+    width: min(800px, 94vw);
+
+    padding:
+        55px 35px;
+
+    text-align: center;
+
+}
+
+
+.question-heart {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+    animation:
+        heartbeat 2s infinite;
+
+}
+
+
+.question-intro {
+
+    font-size: 16px;
+
+    opacity: 0.6;
+
+    margin-bottom: 18px;
+
+}
+
+
+.question-card h1 {
+
+    font-size:
+        clamp(36px, 8vw, 70px);
+
+    line-height: 1.1;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+}
+
+
+.question-card h1 span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9fc9,
+            #d2b7ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+.date-preview {
+
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.45;
+
+}
+
+
+/* =========================================
+   QUESTION BUTTONS
+   ========================================= */
+
+.button-container {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    min-height: 120px;
+
+    margin-top: 25px;
+
+}
+
+
+.yes-button,
+.no-button {
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding:
+        16px 35px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        all 0.35s ease;
+
+}
+
+
+.yes-button {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5f9e,
+            #ff86bd
+        );
+
+    box-shadow:
+        0 10px 35px rgba(255,70,150,0.3);
+
+}
+
+
+.yes-button:hover {
+
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 15px 45px rgba(255,70,150,0.5);
+
+}
+
+
+.no-button {
+
+    color: rgba(255,255,255,0.8);
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+}
+
+
+.no-button:hover {
+
+    background:
+        rgba(255,255,255,0.12);
+
+}
+
+
+/* =========================================
+   NO BUTTON MESSAGE
+   ========================================= */
+
+#no-message {
+
+    height: 25px;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    opacity: 0.7;
+
+    transition:
+        opacity 0.3s ease;
+
+}
+
+
+/* =========================================
+   SUCCESS SCREEN
+   ========================================= */
+
+.success-card {
+
+    text-align: center;
+
+    padding: 40px;
+
+}
+
+
+.success-heart {
+
+    font-size: 80px;
+
+    animation:
+        heartbeat 1.2s infinite;
+
+    text-shadow:
+        0 0 40px rgba(255,100,180,0.8);
+
+}
+
+
+.success-card h1 {
+
+    margin-top: 20px;
+
+    font-size:
+        clamp(40px, 9vw, 75px);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9ecb,
+            #cdb4ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+.success-loading {
+
+    margin-top: 15px;
+
+    opacity: 0.6;
+
+    font-size: 16px;
+
+}
+
+
+.success-date {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+}
+
+
+.success-date small {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+
+}
+
+/* =========================================
+   CINEMATIC DATE REVEAL
+   ========================================= */
+
+.success-date {
+
+    position: relative;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.15),
+        0 0 30px rgba(200,160,255,0.35);
+
+}
+
+
+.success-date::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 100px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(200,160,255,0.18),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    z-index: -1;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   DATE NUMBERS
+   ========================================= */
+
+.success-date span {
+
+    font-weight: 500;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9fc9,
+            #d6bdff,
+            #ff9fc9
+        );
+
+    background-size:
+        200% auto;
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        dateGlow 4s linear infinite;
+
+}
+
+
+@keyframes dateGlow {
+
+    0% {
+
+        background-position:
+            0% center;
+
+    }
+
+    100% {
+
+        background-position:
+            200% center;
+
+    }
+
+}
+
+
+/* =========================================
+   POEM SCREEN
+   ========================================= */
+
+.poem-card {
+
+    width: min(750px, 94vw);
+
+    max-height: 88vh;
+
+    /*
+       THIS is the scrolling fix.
+       Everything else keeps the original
+       appearance.
+    */
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    overscroll-behavior: contain;
+
+    padding:
+        50px 45px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.055);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 25px 90px rgba(0,0,0,0.5);
+
+}
+
+
+.poem-card::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+
+.poem-card::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255,255,255,0.2);
+
+    border-radius: 10px;
+
+}
+
+
+.poem-decoration {
+
+    font-size: 30px;
+
+    opacity: 0.7;
+
+    margin-bottom: 15px;
+
+}
+
+
+.poem-card h1 {
+
+    font-size:
+        clamp(35px, 7vw, 55px);
+
+    font-weight: 400;
+
+    margin-bottom: 35px;
+
+}
+
+
+#poem-container {
+
+    min-height: 300px;
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    color:
+        rgba(255,255,255,0.82);
+
+}
+
+
+.poem-line {
+
+    margin-bottom: 14px;
+
+    opacity: 0;
+
+    animation:
+        poemLineAppear 1s ease forwards;
+
+}
+
+
+@keyframes poemLineAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.poem-signature {
+
+    margin-top: 40px;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease;
+
+}
+
+
+.poem-signature.visible {
+
+    opacity: 1;
+
+}
+
+
+.poem-signature p {
+
+    opacity: 0.6;
+
+}
+
+
+.poem-signature h2 {
+
+    margin-top: 8px;
+
+    font-size: 30px;
+
+}
+
+
+/* =========================================
+   FINAL SCREEN
+   ========================================= */
+
+.final-card {
+
+    width: min(650px, 92vw);
+
+    text-align: center;
+
+    padding: 55px 35px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.45);
+
+}
+
+
+.final-hearts {
+
+    font-size: 20px;
+
+    letter-spacing: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.final-card h1 {
+
+    font-size:
+        clamp(35px, 8vw, 60px);
+
+    font-weight: 500;
+
+    line-height: 1.15;
+
+}
+
+
+.final-card > p {
+
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    opacity: 0.65;
+
+}
+
+
+.final-date {
+
+    margin-top: 30px;
+
+    font-size: 17px;
+
+    letter-spacing: 7px;
+
+    opacity: 0.6;
+
+}
+
+
+.final-message {
+
+    margin-top: 35px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    opacity: 0.75;
+
+}
+
+
+.final-message strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 30px;
+
+    color: #ff9bc9;
+
+}
+
+
+.big-heart {
+
+    margin-top: 35px;
+
+    font-size: 65px;
+
+    animation:
+        heartbeat 1.5s infinite;
+
+    text-shadow:
+        0 0 35px rgba(255,100,180,0.8);
+
+}
+
+
+/* =========================================
+   MUSIC BUTTON
+   ========================================= */
+
+.music-button {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    color: white;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    backdrop-filter:
+        blur(10px);
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.music-button.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.music-button:hover {
+
+    transform:
+        scale(1.1);
+
+    background:
+        rgba(255,255,255,0.15);
+
+}
+
+
+/* =========================================
+   CONFETTI
+   ========================================= */
+
+#confetti-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 200;
+
+}
+
+
+.confetti {
+
+    position: absolute;
+
+    top: -20px;
+
+    width: 8px;
+    height: 14px;
+
+    opacity: 0.9;
+
+    animation:
+        confettiFall linear forwards;
+
+}
+
+
+@keyframes confettiFall {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+    }
+
+}
+
+
+/* =========================================
+   FLOATING HEART
+   ========================================= */
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    font-size: 15px;
+
+    opacity: 0;
+
+    animation:
+        floatHeart linear forwards;
+
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            scale(0.7);
+
+    }
+
+    15% {
+
+        opacity: 0.6;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-110vh)
+            scale(1.3)
+            rotate(20deg);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+
+        padding: 15px;
+
+    }
+
+
+    .glass-card {
+
+        padding:
+            40px 25px;
+
+        border-radius: 25px;
+
+    }
+
+
+    .question-card {
+
+        padding:
+            35px 15px;
+
+    }
+
+
+    .question-card h1 {
+
+        letter-spacing: -1px;
+
+    }
+
+
+    .button-container {
+
+        gap: 12px;
+
+        min-height: 130px;
+
+    }
+
+
+    .yes-button,
+    .no-button {
+
+        padding:
+            14px 25px;
+
+        font-size: 14px;
+
+    }
+
+
+    .poem-card {
+
+        width: 94vw;
+
+        max-height: 85vh;
+
+        padding:
+            40px 25px;
+
+        /*
+           Mobile scrolling.
+        */
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+
+        -webkit-overflow-scrolling: touch;
+
+    }
+
+
+    #poem-container {
+
+        font-size: 16px;
+
+        line-height: 1.8;
+
+    }
+
+
+    .music-button {
+
+        right: 15px;
+
+        bottom: 15px;
+
+        width: 45px;
+        height: 45px;
+
+    }
+
+}
+
+
+/* =========================================
+   REDUCE MOTION FOR ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+}
+
+/* =========================================
+   YES SCREEN CINEMATIC GLOW
+   ========================================= */
+
+.success-card {
+
+    position: relative;
+
+}
+
+
+.success-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,100,180,0.12),
+            transparent 65%
+        );
+
+    filter: blur(30px);
+
+    animation:
+        celebrationGlow 3s ease-in-out infinite;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+@keyframes celebrationGlow {
+
+    0%,
+    100% {
+
+        transform: scale(0.9);
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        transform: scale(1.1);
+
+        opacity: 1;
+
+    }
+
+}
+
+/* =========================================
+   FINAL SCREEN — CINEMATIC FINISH
+   ========================================= */
+
+.final-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    animation:
+        finalCardAppear 1.4s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+
+}
+
+
+@keyframes finalCardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.92);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   FINAL DECORATION
+   ========================================= */
+
+.final-hearts {
+
+    font-size: 18px;
+
+    letter-spacing: 15px;
+
+    opacity: 0.55;
+
+    margin-bottom: 20px;
+
+    animation:
+        finalHearts 3s ease-in-out infinite;
+
+}
+
+
+@keyframes finalHearts {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+        opacity: 0.45;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-5px);
+
+        opacity: 0.9;
+
+    }
+
+}
+
+
+/* =========================================
+   SMALL TEXT
+   ========================================= */
+
+.final-small {
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    opacity: 0.45;
+
+}
+
+
+/* =========================================
+   MAIN TITLE
+   ========================================= */
+
+.final-card h1 {
+
+    margin-top: 15px;
+
+    font-size:
+        clamp(50px, 10vw, 80px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ffb0d3,
+            #d3baff,
+            #ffffff
+        );
+
+    background-size:
+        250% auto;
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        finalTitleGlow 5s linear infinite;
+
+}
+
+
+@keyframes finalTitleGlow {
+
+    0% {
+
+        background-position:
+            0% center;
+
+    }
+
+    100% {
+
+        background-position:
+            250% center;
+
+    }
+
+}
+
+
+/* =========================================
+   FINAL QUESTION
+   ========================================= */
+
+.final-question {
+
+    margin-top: 20px;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    opacity: 0.7;
+
+}
+
+
+/* =========================================
+   FINAL DATE
+   ========================================= */
+
+.final-date {
+
+    margin: 25px auto;
+
+    padding:
+        15px 25px;
+
+    width: fit-content;
+
+    border-radius: 50px;
+
+    font-size:
+        clamp(14px, 3vw, 18px);
+
+    letter-spacing: 5px;
+
+    font-weight: 500;
+
+    color: #ffd3e5;
+
+    background:
+        rgba(255,255,255,0.055);
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+        0 0 30px
+        rgba(255,120,180,0.1);
+
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+   ========================================= */
+
+.final-message {
+
+    margin-top: 35px;
+
+}
+
+
+.final-message p {
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    opacity: 0.6;
+
+}
+
+
+.final-message strong {
+
+    display: block;
+
+    margin-top: 12px;
+
+    font-size:
+        clamp(20px, 5vw, 28px);
+
+    font-weight: 500;
+
+    color: #ff9fc9;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,100,180,0.3);
+
+}
+
+
+/* =========================================
+   FINAL HEART
+   ========================================= */
+
+.big-heart {
+
+    margin-top: 30px;
+
+    font-size: 65px;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255,80,160,0.6)
+        );
+
+    animation:
+        finalHeartbeat 1.6s
+        ease-in-out infinite;
+
+}
+
+
+@keyframes finalHeartbeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    20% {
+
+        transform:
+            scale(1.18);
+
+    }
+
+    35% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.1);
+
+    }
+
+}
+
+
+/* =========================================
+   FINAL BUTTON
+   ========================================= */
+
+.final-card .main-button {
+
+    margin-top: 30px;
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .final-card {
+
+        padding:
+            40px 25px;
+
+    }
+
+    .final-date {
+
+        letter-spacing: 3px;
+
+        font-size: 13px;
+
+    }
+
+}

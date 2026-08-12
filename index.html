@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the website work properly on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser tab title -->
+    <title>💖 A Little Surprise for Sasha</title>
+
+    <!-- We'll add our CSS in Part 2 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================================= -->
+    <!-- BACKGROUND                                -->
+    <!-- ========================================= -->
+
+    <div id="background">
+        <div class="stars"></div>
+        <div class="hearts"></div>
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- LOADING SCREEN                            -->
+    <!-- ========================================= -->
+
+    <section id="loading-screen" class="screen active">
+
+        <div class="loading-content">
+
+            <div class="loading-heart">♥</div>
+
+            <h1>Loading something special...</h1>
+
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+
+            <p>Made with love ❤️</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- INTRO SCREEN                              -->
+    <!-- ========================================= -->
+
+    <section id="intro-screen" class="screen">
+
+        <div class="glass-card">
+
+            <div class="small-heart">♥</div>
+
+            <h1 id="intro-title"></h1>
+
+            <p id="intro-message"></p>
+
+            <button id="begin-button" class="main-button">
+                Begin ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- STORY SCREEN                              -->
+    <!-- ========================================= -->
+
+    <section id="story-screen" class="screen">
+
+        <div class="glass-card story-card">
+
+            <div class="story-heart">♥</div>
+
+            <h2 id="story-title"></h2>
+
+            <p id="story-text"></p>
+
+            <button id="story-next" class="main-button">
+                Continue →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- QUESTION SCREEN                           -->
+    <!-- ========================================= -->
+
+    <section id="question-screen" class="screen">
+
+        <div class="question-card">
+
+            <div class="question-heart">
+                ♥
+            </div>
+
+            <p class="question-intro">
+                There's something I've been wanting to ask you...
+            </p>
+
+            <h1>
+                Will you be my
+                <span>Matric Dance date?</span>
+            </h1>
+
+            <p class="date-preview">
+                23 September 2026
+            </p>
+
+
+            <!-- BUTTONS -->
+
+            <div class="button-container">
+
+                <button id="yes-button" class="yes-button">
+                    YES ❤️
+                </button>
+
+                <button id="no-button" class="no-button">
+                    NO
+                </button>
+
+            </div>
+
+            <!-- Funny messages appear here -->
+
+            <p id="no-message"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- YES / SUCCESS SCREEN                      -->
+    <!-- ========================================= -->
+
+        <div id="success-screen" class="screen">
+
+    <div class="success-card">
+
+        <div class="success-heart">
+            ❤️
+        </div>
+
+        <h1>
+            I KNEW IT ❤️
+        </h1>
+
+        <p class="success-loading">
+            I was really hoping you'd say that...
+        </p>
+
+        <div class="success-date">
+
+            <span>
+                23
+            </span>
+
+            <small>
+                SEPTEMBER
+            </small>
+
+            <span>
+                2026
+            </span>
+
+        </div>
+
+        <button
+            id="poem-button"
+            class="main-button"
+        >
+            Read something I wrote for you ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+    <!-- ========================================= -->
+    <!-- POEM SCREEN                               -->
+    <!-- ========================================= -->
+
+    <section id="poem-screen" class="screen">
+
+        <div class="poem-card">
+
+            <div class="poem-decoration">
+                ✦
+            </div>
+
+            <h1>
+                For Sasha
+            </h1>
+
+            <div id="poem-container">
+
+                <!-- JavaScript will type the poem here -->
+
+            </div>
+
+            <div class="poem-signature">
+
+                <p>With all my heart,</p>
+
+                <h2>
+                    Eric ❤️
+                </h2>
+
+            </div>
+
+            <button id="final-button" class="main-button">
+                One more thing... ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+   <!-- =========================================
+     FINAL SCREEN
+     ========================================= -->
+
+<div id="final-screen" class="screen">
+
+    <div class="final-card">
+
+        <div class="final-hearts">
+            ♡ ♡ ♡
+        </div>
+
+        <p class="final-small">
+            One last thing...
+        </p>
+
+        <h1>
+            So...
+        </h1>
+
+        <p class="final-question">
+            I'll see you on
+        </p>
+
+        <div class="final-date">
+            23 SEPTEMBER 2026
+        </div>
+
+        <p class="final-question">
+            for our MD?
+        </p>
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <div class="final-message">
+
+            <p>
+                I genuinely can't wait to make
+                this memory with you.
+            </p>
+
+            <strong>
+                My Angel ❤️
+            </strong>
+
+        </div>
+
+        <button id="final-button" class="main-button">
+    You & Me ❤️
+</button>
+
+    </div>
+
+</div>
+
+
+    <!-- ========================================= -->
+    <!-- MUSIC PLAYER                              -->
+    <!-- ========================================= -->
+
+    <audio id="background-music" loop>
+        <source src="piano.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-button" class="music-button">
+        🎵
+    </button>
+
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT                                -->
+    <!-- ========================================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
